@@ -227,3 +227,23 @@
 
     }
 
+    /**
+     * Вычислить квадраты чисел
+     *
+     * @param $n
+     *
+     * @return int
+     */
+    function square($n){
+        if ($n > 0) {
+            return square($n-1)+pow($n,$n);
+        }
+        else
+        {
+            return $n;
+        }
+    }
+
+    
+
+
