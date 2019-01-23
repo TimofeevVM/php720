@@ -150,5 +150,17 @@
         return ['op'=>$op,'orgArr'=>$arr,'arr'=>$resArr];
     }
 
+    /**
+     * Создание сокращенного варианта ФИО
+     *
+     * @param string $fullName
+     *
+     * @return string
+     */
+    function reductionFullName($fullName){
+        $arrName = explode(' ',$fullName);
+        return $arrName[0].' '.$arrName[1][0].'. '.$arrName[2][0];
+    }
 
     
+
