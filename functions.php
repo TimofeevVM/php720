@@ -65,5 +65,60 @@
         }
         return $sum;
     }
-    
 
+    /**
+     * Найти максимальное и минимальное значение массива
+     *
+     * Используются функции PHP
+     *
+     * @return array
+     */
+    function replaceMaxAndMinNumber(){
+        $arr = [];
+        for ($i = 0; $i<10; $i++){
+            $arr[] = rand(0,20);
+        }
+
+        $maxKey = array_keys($arr,max($arr))[0];
+        $minKey = array_keys($arr,min($arr))[0];
+
+        list($arr[$maxKey],$arr[$minKey]) = [$arr[$minKey],$arr[$maxKey]];
+        return $arr;
+    }
+
+    /**
+     * Найти максимальное и минимальное значение массива
+     *
+     * Без функций PHP
+     *
+     * @return array
+     */
+    function replaceMaxAndMinNumber1(){
+        $arr = [];
+        $lenArr = 10;
+
+        for ($i = 0; $i<$lenArr; $i++){
+            $arr[] = rand(0,20);
+        }
+
+        $maxKey = 0;
+        $minKey = 0;
+
+        for ($i = 0; $i<$lenArr; $i++){
+            if ($arr[$minKey] < $arr[$i]){
+                $minKey = $i;
+            }
+
+            if ($arr[$maxKey] > $arr[$i]){
+                $maxKey = $i;
+            }
+        }
+
+        $buf = $arr[$maxKey];
+        $arr[$maxKey] = $arr[$minKey];
+        $arr[$minKey] = $buf;
+
+        return $arr;
+    }
+
+    
