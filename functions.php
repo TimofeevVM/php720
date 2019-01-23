@@ -162,5 +162,20 @@
         return $arrName[0].' '.$arrName[1][0].'. '.$arrName[2][0];
     }
 
-    
+    /**
+     * Определения положения стрелки часов
+     *
+     * @param $deg
+     *
+     * @return float|int|null
+     */
+    function howHour($deg){
+        if ($deg < 0 || $deg > 360) return null;
+        $pct = round(12/360,2);
+
+        $hour = $pct*$deg;
+        return round($hour)+1;
+    }
+
+
 
