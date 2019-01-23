@@ -177,5 +177,18 @@
         return round($hour)+1;
     }
 
-
+    
+    /**
+     * Проверить високосный ли год
+     *
+     * @param $year
+     *
+     * @return bool|null
+     */
+    function isLeapYear($year)
+    {
+        if (!($year > 0 && $year < 10000)) return null;
+        $y = DateTime::createFromFormat('Y',$year)->format('L');
+        return (boolean)$y;
+    }
 
