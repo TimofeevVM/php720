@@ -26,4 +26,21 @@
         return $sum;
     }
 
+    /**
+     * @param int $number
+     *
+     * @return int
+     */
+    function countDigitInNumber($number,$digit){
+        $count = 0;
+        $number = strval($number);
 
+        for ($i=0; $i < strlen($number); $i++){
+            if ($number[$i] == $digit){
+                $count++;
+            }
+        }
+        return $count;
+    }
+
+    
