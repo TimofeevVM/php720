@@ -25,7 +25,7 @@
         if (!is_numeric($number)) {
             return null;
         }
-
+        $number = strval($number);
         $sum = 0;
         for ($i = 0; $i < strlen($number); $i++) {
             $sum += $number[$i];
@@ -202,7 +202,8 @@
     function reductionFullName($fullName)
     {
         $arrName = explode(' ', $fullName);
-        return $arrName[0] . ' ' . $arrName[1][0] . '. ' . $arrName[2][0];
+
+        return $arrName[0] . ' ' . mb_substr($arrName[1],0,1) . '. ' . mb_substr($arrName[2],0,1).'.';
     }
 
 
