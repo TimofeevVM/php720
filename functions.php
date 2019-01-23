@@ -78,12 +78,13 @@
         for ($i = 0; $i<10; $i++){
             $arr[] = rand(0,20);
         }
-
+        $orgArr = $arr; // для вывода
         $maxKey = array_keys($arr,max($arr))[0];
         $minKey = array_keys($arr,min($arr))[0];
 
         list($arr[$maxKey],$arr[$minKey]) = [$arr[$minKey],$arr[$maxKey]];
-        return $arr;
+
+        return ['orgArr'=>$orgArr,'arr'=>$arr];
     }
 
     /**
@@ -100,7 +101,7 @@
         for ($i = 0; $i<$lenArr; $i++){
             $arr[] = rand(0,20);
         }
-
+        $orgArr = $arr; // для вывода
         $maxKey = 0;
         $minKey = 0;
 
@@ -118,7 +119,36 @@
         $arr[$maxKey] = $arr[$minKey];
         $arr[$minKey] = $buf;
 
-        return $arr;
+        return ['orgArr'=>$orgArr,'arr'=>$arr];
     }
+
+    /**
+     * Работа с индексами, элементами массива
+     * @return array
+     */
+    function workWithIndex(){
+        $arr = [];
+        $lenArr = 10;
+
+        for ($i = 0; $i<$lenArr; $i++){
+            $arr[] = rand(1,100);
+        }
+
+        $resArr=[];
+        $op = 1;
+
+        for ($i = 0; $i<$lenArr; $i++){
+            if ($arr[$i]>0){
+                if (fmod($i,2) == 0){
+                    $op *= $arr[$i];
+                } else {
+                    $resArr[] = $arr[$i];
+                }
+            }
+        }
+
+        return ['op'=>$op,'orgArr'=>$arr,'arr'=>$resArr];
+    }
+
 
     
