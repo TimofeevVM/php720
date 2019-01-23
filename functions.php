@@ -27,6 +27,8 @@
     }
 
     /**
+     *Проверить количество вхождения цифры в число
+     *
      * @param int $number
      *
      * @return int
@@ -43,4 +45,25 @@
         return $count;
     }
 
+    /**
+     * Найти сумму чисел, которые делятся на 5
+     *
+     * @return int
+     *
+     */
+    function sumFmod5(){
+        $start = 20;
+        $end = 45;
+        $divider = 5;
+
+        $sum = 0;
+
+        for ($i = $start; $i <= $end; $i++){
+            if (fmod($i,$divider)==0){
+                $sum += $i;
+            }
+        }
+        return $sum;
+    }
     
+
